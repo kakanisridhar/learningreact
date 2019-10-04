@@ -1,0 +1,23 @@
+{
+    "startup_app": {
+        "name": "Learning React",
+        "description": "Learning React",
+        "url": "http://localhost:3000/index.html",
+        "uuid": "mridasoft-learning-react",
+        "autoShow": true,
+        "defaultHeight": "600",
+        "defaultWidth": "200",
+        "defaultLeft": 0,
+        "defaultTop": 10,
+        "nonPersistent": true
+    },
+    "runtime": {
+        "arguments": "",
+        "version": "beta"
+    },
+    "shortcut": {
+        "company": "Mridasoft",
+        "description": "Learning react",
+        "name": "Learning react"
+    }
+}
