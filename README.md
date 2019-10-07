@@ -1,5 +1,10 @@
-# Instructions
-Please follow the instruction below to build/run this code
+# Intention
+
+Learn
+- React
+- Redux
+- Redux Saga
+- React Router
 
 ## 1. to build
 - npm install
