@@ -44,6 +44,9 @@ const options = {
   after() {
     process.stdout.write(`dev server is running: http://${Host}:${Port}\n`);
   },
+  proxy: {
+    '/api': 'http://127.0.0.1:3001',
+  },
 };
 
 function startDevServer(config) {
