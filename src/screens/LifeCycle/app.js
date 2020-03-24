@@ -19,15 +19,21 @@ class Timer extends React.Component {
             clearInterval(this.timerId);
         }
 
-        return <div className="pure-g">        
-
-            <div className="pure-u-1-1">
-                {this.props.description}
+        return (
+        <>
+            <div class="text-center">
+                <h1>{desc}</h1>
             </div>
-            <div className="pure-u-1-2"> {desc}</div>
-            <div className="pure-u-1-2"> <input type="text" name="question1"  disabled={this.state.youhave <= 0 }/> </div>           
-     
-        </div>;
+            <div className="container">        
+                <div  className="row">
+                <div className="col-6">
+                    {this.props.description}
+                </div>
+                
+                <div className="col-4"> <input type="text" name="question1"  disabled={this.state.youhave <= 0 }/> </div>           
+                </div>
+            </div>
+        </>);
     }
     
     componentDidMount() {
