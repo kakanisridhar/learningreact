@@ -27,8 +27,7 @@ const htmlFiles = fg.sync(['*.html', '**/index.html'], {
 function getScreenName(fn) {
   let S = fn;
   S = S.replace(path.extname(S), '');
-  if (S.includes('/'))
-    S = S.substr(0, S.indexOf('/'));
+  if (S.includes('/')) S = S.substr(0, S.indexOf('/'));
   return S;
 }
 
@@ -51,19 +50,29 @@ let htmlPlugins = htmlFiles.map(fileName => {
       chunks: [S, 'vendor'],
       template: path.resolve(`${PAGE_DIR}/${fileName}`),
       filename: S + '.html',
-      screens: JSON.stringify(htmlFiles.map(getScreenName).filter(s => s !== 'index'))
+      screens: JSON.stringify(
+        htmlFiles.map(getScreenName).filter(s => s !== 'index')
+      )
     });
   }
 });
 
-
+let cssLoader = {
+  loader: 'css-loader', //generating unique classname
+  options: {
+    importLoaders: 1, // if specifying more loaders
+    modules: true,
+    sourceMap: false,
+    localIdentName: '[path]___[name]__[local]___[hash:base64:5]' //must match generateScopedName in babelrc
+  }
+};
 
 module.exports = {
   mode: 'development',
   entry: entryScreens,
   output: {
     path: paths.appBuild,
-    filename: '[name].[hash:4].js',
+    filename: '[name].[hash:4].js'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -71,52 +80,94 @@ module.exports = {
       'react-dom': '@hot-loader/react-dom',
       '@Components': path.resolve(paths.appSrc, 'components'),
       '@Services': path.resolve(paths.appSrc, 'services')
-    },
+    }
   },
   devtool: 'eval-source-map',
+
   module: {
-    rules: [{
-      test: /\.(js|ts|jsx|tsx)$/,
-      use: ['babel-loader'],
-      exclude: /node_modules/
-    },
-    {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader']
-    },
-    {
-      test: /\.svg$/,
-      use: [{ loader: 'file-loader' },
+    rules: [
       {
-        loader: 'svgo-loader',
-        options: {
-          plugins: [
-            { removeTitle: true },
-            { convertColors: { shorthex: false } },
-            { convertPathData: false }
-          ]
-        }
-      }]
-    },
-    {
-      test: /\.(jpe?g|png|gif)$/i,
-      loaders: [
-        'file-loader?hash=sha512&digest=hex&name=img/[hash].[ext]',
-        'image-webpack-loader?bypassOnDebug&optipng.optimizationLevel=7&gifsicle.interlaced=false'
-      ]
-    },
-    {
-      test: /\.(woff|woff2|eot|ttf)$/,
-      loader: ['file-loader?name=fonts/[name].[ext]']
-    }
+        test: /\.(js|ts|jsx|tsx)$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.module\.scss$/,
+        use: ['style-loader', cssLoader, 'sass-loader']
+      },
+      {
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.module\.less$/,
+        use: [
+          'style-loader',
+          cssLoader,
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.less$/,
+        exclude: /\.module\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          { loader: 'file-loader' },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                { removeTitle: true },
+                { convertColors: { shorthex: false } },
+                { convertPathData: false }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        loaders: [
+          'file-loader?hash=sha512&digest=hex&name=img/[hash].[ext]',
+          'image-webpack-loader?bypassOnDebug&optipng.optimizationLevel=7&gifsicle.interlaced=false'
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        loader: ['file-loader?name=fonts/[name].[ext]']
+      }
     ]
   },
   plugins: [
-    new CopyWebpackPlugin([{
-      from: paths.appAssets,
-      to: '.'
-    }]),
+    new CopyWebpackPlugin([
+      {
+        from: paths.appAssets,
+        to: '.'
+      }
+    ]),
     ...htmlPlugins,
     new webpack.NamedModulesPlugin()
-  ],
+  ]
 };
