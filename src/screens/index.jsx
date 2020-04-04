@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WindowManager from '@Services/WindowManager';
+import {launchScreen} from '@Services/openfinApiHelpers.js';
+
 
 const MenuLink = ({ url, onMenuClicked }) => {
   function handleClick(e) {
@@ -28,6 +29,6 @@ const winManager = new WindowManager(true);
 window.winManager = winManager;
 
 ReactDOM.render(
-  <Menu screens={screens} onMenuClicked={winManager.launchWindow} />,
+  <Menu screens={screens} onMenuClicked={launchScreen} />,
   document.getElementById('root')
 );
