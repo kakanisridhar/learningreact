@@ -24,10 +24,6 @@ const Menu = ({ screens, onMenuClicked }) => {
   return <ul>{listItems}</ul>;
 };
 
-const winManager = new WindowManager(true);
-
-window.winManager = winManager;
-
 ReactDOM.render(
   <Menu screens={screens} onMenuClicked={launchScreen} />,
   document.getElementById('root')

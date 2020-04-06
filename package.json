@@ -23,6 +23,7 @@
     "antd": "^3.26.15",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "classnames": "^2.2.6",
     "connected-react-router": "^6.8.0",
     "core-js": "^3.6.4",
     "dotenv": "^7.0.0",
