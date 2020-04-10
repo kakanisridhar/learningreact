@@ -49,6 +49,7 @@ export const launchScreen = async (name,options) => {
     const defaultOptions = {
       autoShow: true,
       name: name,
+      frame: true,
       url: `${name}.html`,
       resizable: true,
       defaultHeight: Math.floor(mi.virtualScreen.dipRect.bottom * 0.80),
