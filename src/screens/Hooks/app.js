@@ -1,31 +1,36 @@
-import styles from './app.module.scss';
-import { Container, Row, Col, Button} from 'react-bootstrap';
-import React, { Component } from 'react';
-import AppNav from './components/AppNav';
-import cx from 'classnames'
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import React from 'react';
+import Container from './components/Container';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Reducer from './Reducer';
+import State from './State';
+import Ref from './Ref';
 
-// This is class based component
-class App extends Component {
+const Welcome = () => <h1> Learning react hooks</h1>;
 
+export default function App() {
+  return (
+    <Router>
+      <Container>
+        <Navbar></Navbar>
 
-  render() {
-    let appClass = cx(
-      'd-flex',
-      'flex-column',
-      styles.app
-    );
-  
-    return (
-      <div className={appClass}>
-        <div>
-          <AppNav>Navbar will come here</AppNav>
-        </div>
-        <div>
-          This is main area
-        </div>
-      </div>
-    );
-  }
+        <Switch>
+          <Route path="/state">
+            <State />
+          </Route>
+          <Route path="/reducer">
+            <Reducer />
+          </Route>
+          <Route path="/ref">
+            <Ref />
+          </Route>
+          <Route path="/">
+            <Welcome />
+          </Route>
+        </Switch>
+      </Container>
+    </Router>
+  );
 }
-
-export default App;

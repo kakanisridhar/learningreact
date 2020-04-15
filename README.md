@@ -5,16 +5,10 @@ For Learning
 - React Hooks
 - Redux
 - Redux Thunk
-- Easy peasy
 - Redux Saga
 - React Router
-- React Query
-- react motion
-- greensock
-- react-blocks
 - immer
 - AG-GRID
-- Formik
 
 ## 1. to build
 - npm install
