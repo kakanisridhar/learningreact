@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core';
 import React from 'react';
 import Container from './components/Container';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Reducer from './Reducer';
 import State from './State';
 import Ref from './Ref';
@@ -17,17 +17,14 @@ export default function App() {
         <Navbar></Navbar>
 
         <Switch>
-          <Route path="/state">
-            <State />
-          </Route>
-          <Route path="/reducer">
+          <Route path="/reducer" exact>
             <Reducer />
           </Route>
-          <Route path="/ref">
+          <Route path="/ref" exact>
             <Ref />
           </Route>
-          <Route path="/">
-            <Welcome />
+          <Route path="*">
+            <State />
           </Route>
         </Switch>
       </Container>
