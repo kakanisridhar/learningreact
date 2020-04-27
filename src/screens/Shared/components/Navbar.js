@@ -8,24 +8,24 @@ const navbarStyle = css`
   justify-content: center;
   align-items: center;
   height: 50px;
-  background-color: #b2ebf2;
+  background-color: #862a5c;
 
   div {
     margin: 0px 5px 0px 5px;
   }
 
   a {
-    color: #f48fb1;
+    color: #f3c623;
     cursor: pointer;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
-      color: #2e7d32;
+      color: #ffaaa5;
     }
   }
 `;
 
-export default function NavBar() {
+export default function NavBar(props) {
   return (
     <div css={navbarStyle}>
       <div
@@ -35,15 +35,7 @@ export default function NavBar() {
       >
         <Link to="/">Mridasoft</Link>
       </div>
-      <div>
-        <Link to="/state">UseState</Link>
-      </div>
-      <div>
-        <Link to="/reducer">UseReducer</Link>
-      </div>
-      <div>
-        <Link to="/ref">UseRef</Link>
-      </div>
+      {props.children}
     </div>
   );
 }

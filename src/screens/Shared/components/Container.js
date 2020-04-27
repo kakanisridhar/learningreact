@@ -14,4 +14,17 @@ const Container = props => (
   </div>
 );
 
+export const Row = props => (
+  <div
+    css={{
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}
+  >
+    {props.children}
+  </div>
+);
+
 export default Container;

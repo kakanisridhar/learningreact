@@ -7,6 +7,7 @@ For Learning
 - Redux Thunk
 - Redux Saga
 - React Router
+- XState
 - immer
 - AG-GRID
 
