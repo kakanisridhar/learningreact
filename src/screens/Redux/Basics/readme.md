@@ -1,0 +1,1 @@
+Actions - > Reducers - > Modify State -> MapStateToProps -> rerender 
