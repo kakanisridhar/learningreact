@@ -1,7 +1,4 @@
-const counter = (state, action) => {
-  if (typeof state === 'undefined') {
-    return 0;
-  }
+const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
       return state + 1;
@@ -10,6 +7,6 @@ const counter = (state, action) => {
     default:
       return state;
   }
-}
+};
 
-export default counter;
+export default counterReducer;

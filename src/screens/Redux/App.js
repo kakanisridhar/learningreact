@@ -1,24 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Container from '../Shared/components/Container';
+import Navbar from '../Shared/components/Navbar';
+import Lesson1Container from './Basics';
 
-const mapStateToProps = state => ({
-  counter: state
-});
+const Welcome = () => <p>Learning react redux</p>;
 
-const mapDispatchToProps = dispatch => ({
-  increment: () => dispatch({ type: 'INCREMENT' }),
-  decrement: () => dispatch({ type: 'DECREMENT' })
-});
-
-const App = (props) => (
-  <div>
-    <button onClick = {props.increment}>+</button>
-    {props.counter}
-    <button onClick = {props.decrement}>-</button>
-  </div>
-);
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default function App() {
+  return (
+    <Router>
+      <Container>
+        <Navbar>
+          <div>
+            <Link to="/Lesson1">Lesson1</Link>
+          </div>
+        </Navbar>
+        <Route exact path="/Lesson1" component={Lesson1Container} />
+        <Route path="*" component={Welcome} />
+      </Container>
+    </Router>
+  );
+}

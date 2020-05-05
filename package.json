@@ -30,6 +30,7 @@
     "dotenv": "^7.0.0",
     "history": "^4.10.1",
     "react": "^16.13.1",
+    "react-beautiful-dnd": "^13.0.0",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.20",
