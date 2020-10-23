@@ -1,0 +1,72 @@
+@import "~@blueprintjs/core/lib/scss/variables";
+@import "../../Styles/variables";
+
+.left-sidebar {
+  bottom: 0;
+  display: flex;
+  overflow: hidden;
+  flex-grow: 2;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  transition: 0.25s ease-in-out;
+  width: $sidebar_width;
+  z-index: 5;
+
+  .bp3-dark & {
+    background-color: $pt-dark-app-background-color;
+  }
+  .sidebar-toggle-btn {
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    transform: rotate(0);
+  }
+
+  .sidebar-header {
+    align-items: center;
+    border-bottom: 2px solid #e4e8eb;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .sidebar-scroll {
+    overflow-y: auto;
+  }
+
+  .sidebar-footer {
+    /* padding: 1rem; */
+  }
+
+  .sidebar-collapsed-controls {
+    display: none;
+    padding-top: 1rem;
+    padding-right: 14px;
+    width: 30px;
+    margin-left: auto;
+  }
+
+  &.left-sidebar-collapsed {
+    left: -290px;
+    .sidebar-header {
+      padding-right: 20px;
+    }
+    .sidebar-toggle-btn {
+      transform: rotate(180deg);
+      padding-right: 20px;
+    }
+    .sidebar-footer {
+      display: none;
+    }
+    .sidebar-collapsed-controls {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: column;
+
+      > *:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

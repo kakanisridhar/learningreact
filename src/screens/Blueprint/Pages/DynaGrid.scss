@@ -1,0 +1,14 @@
+@import "~@blueprintjs/core/lib/scss/variables";
+
+.dyna-col {
+  min-height: 50px;
+  border-left: 1px dotted;
+  border-right: 1px dotted;
+}
+
+.dyna-row {
+  border: 1px dashed;
+  &--selected {
+    border: 1px solid;
+  }
+}

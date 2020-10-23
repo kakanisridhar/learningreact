@@ -1,0 +1,15 @@
+@import "~@blueprintjs/core/lib/scss/variables";
+@import "../Styles/variables";
+
+.left-sidebar + #content-frame {
+  bottom: 0;
+  position: absolute;
+  top: 50px;
+  left: $sidebar_width;
+  right: 0;
+  transition: 0.25s ease-in-out;
+}
+
+.left-sidebar-collapsed + #content-frame {
+  left: 60px;
+}
