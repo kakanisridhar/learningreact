@@ -1,13 +1,26 @@
+import { Box } from '@chakra-ui/core';
 import React from 'react';
-import './index.scss';
-import * as euiVars from '@elastic/eui/dist/eui_theme_light.json';
+import ComponentContainer from './components/ComponentContainer';
+import ComponentGrid from './components/ComponentGrid';
+import ComponentProps from './components/ComponentProps';
 
 function App() {
   return (
     <>
-      <section>SideBar</section>
-      <main>Drop Area {JSON.stringify(euiVars)} </main>
-      <section>Component Properties</section>
+      <ComponentContainer></ComponentContainer>
+      <Box bg="white" flex={1} zIndex={10} position="relative">
+        <ComponentGrid></ComponentGrid>
+      </Box>
+      <Box
+        maxH="calc(100vh - 3rem)"
+        flex="0 0 15rem"
+        bg="#f7fafc"
+        overflowY="auto"
+        overflowX="visible"
+        borderLeft="1px solid #cad5de"
+      >
+        <ComponentProps></ComponentProps>
+      </Box>
     </>
   );
 }

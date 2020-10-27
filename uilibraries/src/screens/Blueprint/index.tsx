@@ -6,14 +6,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Store from './Redux/Store';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <React.Fragment>
     <Provider store={Store}>
-      <BrowserRouter>
+      <Router>
         <App />
-      </BrowserRouter>
+      </Router>
     </Provider>
   </React.Fragment>,
   document.getElementById('root')
