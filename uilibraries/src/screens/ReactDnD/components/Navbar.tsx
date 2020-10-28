@@ -8,7 +8,7 @@ export const Navbar = (props: Props) => {
     <DarkMode>
       <Flex
         justifyContent="space-between"
-        bg="#2e3748"
+        bg="#457b9d"
         as="header"
         height="3rem"
         px="1rem"

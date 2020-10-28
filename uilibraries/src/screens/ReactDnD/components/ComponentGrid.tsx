@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/core';
 import React, { ReactElement } from 'react';
-
+import { useDrop } from 'react-dnd';
+import { CompType } from '../components';
 interface Props {}
 
 const gridStyles = {
@@ -12,6 +13,16 @@ const gridStyles = {
 };
 
 function ComponentGrid({}: Props): ReactElement {
+  const [{ isOver }, drop] = useDrop({
+    accept: [CompType.Component.toString(), CompType.Container.toString()],
+    drop: item => {
+      console.log(JSON.stringify(item));
+    },
+    collect: monitor => ({
+      isOver: !!monitor.isOver()
+    })
+  });
+
   return (
     <Box
       p={2}
@@ -19,15 +30,14 @@ function ComponentGrid({}: Props): ReactElement {
       height="100%"
       minWidth="10rem"
       width="100%"
-      display="flex"
+      display="block"
       justifyContent="center"
       alignItems="center"
       overflow="auto"
       position="relative"
-      flexDirection="column"
+      ref={drop}
     >
-      Drop container components here Those containers should accept non
-      container components
+      Eventually items will come here, but long way to go
     </Box>
   );
 }

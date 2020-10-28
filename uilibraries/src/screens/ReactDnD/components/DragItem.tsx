@@ -5,7 +5,7 @@ import { Comp } from '../components';
 
 export const DragItem: React.FC<Comp> = ({ name, type }: Comp) => {
   const [{ isDragging }, drag] = useDrag({
-    item: { type: type.toString() },
+    item: { type: type.toString(), name },
     collect: monitor => ({
       isDragging: !!monitor.isDragging()
     })

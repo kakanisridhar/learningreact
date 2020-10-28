@@ -1,4 +1,4 @@
-enum CompType {
+export enum CompType {
   Container,
   Component,
 }
@@ -6,6 +6,7 @@ enum CompType {
 export type Comp = {
   name: string;
   type: CompType;
+  props?: {}
 }
 
 export const components: Comp[] = [
@@ -26,3 +27,18 @@ export const components: Comp[] = [
     type: CompType.Component,
   },
 ];
+
+
+interface IWidget {
+  id: string,
+  parentId: string,
+  children?: string[],
+  props: {}
+  name: string,
+  type: CompType
+  isRoot: boolean
+}
+
+interface IWidgets {
+  [id: string]: IWidget
+}
