@@ -1,5 +1,7 @@
 import { Box, DarkMode } from '@chakra-ui/core';
 import React, { ReactElement } from 'react';
+import { components } from '../components';
+import { DragItem } from './DragItem';
 
 interface Props {}
 
@@ -19,7 +21,15 @@ export default function ComponentContainer({}: Props): ReactElement {
         width="15rem"
         color="gray.300"
       >
-        Stack of components will come here
+        {components.map((comp, i) => {
+          return (
+            <DragItem
+              name={comp.name}
+              type={comp.type}
+              key={comp.name}
+            ></DragItem>
+          );
+        })}
       </Box>
     </DarkMode>
   );
