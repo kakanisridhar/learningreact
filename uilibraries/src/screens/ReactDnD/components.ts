@@ -1,44 +1,52 @@
 export enum CompType {
   Container,
-  Component,
+  Component
 }
 
 export type Comp = {
   name: string;
   type: CompType;
-  props?: {}
-}
+  props?: {};
+};
 
 export const components: Comp[] = [
   {
     name: 'Typography',
-    type: CompType.Component,
+    type: CompType.Component
   },
   {
     name: 'Box',
-    type: CompType.Container,
+    type: CompType.Container
   },
   {
     name: 'Grid',
-    type: CompType.Container,
+    type: CompType.Container
   },
   {
     name: 'Input',
-    type: CompType.Component,
-  },
+    type: CompType.Component
+  }
 ];
 
+/*export interface IWidget {
+  id: string;
+  parentId: string;
+  children?: string[];
+  props: {};
+  name: string;
+  type: CompType;
+  isRoot: boolean;
+}
+*/
 
-interface IWidget {
-  id: string,
-  parentId: string,
-  children?: string[],
-  props: {}
-  name: string,
-  type: CompType
-  isRoot: boolean
+export interface IWidget {
+  id: string;
+  props: {};
+  name: string;
+  type: CompType;
+  isRoot: boolean;
 }
 
 interface IWidgets {
-  [id: string]: IWidget
+  [id: string]: IWidget;
 }

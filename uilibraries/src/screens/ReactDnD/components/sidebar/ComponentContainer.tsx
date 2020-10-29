@@ -1,6 +1,6 @@
 import { Box, DarkMode } from '@chakra-ui/core';
 import React, { ReactElement } from 'react';
-import { components } from '../components';
+import { components } from '../../components';
 import { DragItem } from './DragItem';
 
 interface Props {}

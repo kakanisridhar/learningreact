@@ -12,8 +12,8 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { Navbar } from './components/Navbar';
 import { Global } from '@emotion/core';
-import ComponentContainer from './components/ComponentContainer';
-import ComponentGrid from './components/ComponentGrid';
+import ComponentContainer from './components/sidebar/ComponentContainer';
+import ComponentGrid from './components/sidebar/ComponentGrid';
 import ComponentProps from './components/ComponentProps';
 
 ReactDOM.render(

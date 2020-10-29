@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/core';
 import React from 'react';
-import ComponentContainer from './components/ComponentContainer';
-import ComponentGrid from './components/ComponentGrid';
+import ComponentContainer from './components/sidebar/ComponentContainer';
+import ComponentGrid from './components/editor/ComponentGrid';
 import ComponentProps from './components/ComponentProps';
 
 function App() {

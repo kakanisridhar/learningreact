@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
 import { Text, PseudoBox, Icon, Box } from '@chakra-ui/core';
-import { Comp } from '../components';
+import { Comp } from '../../components';
 
 export const DragItem: React.FC<Comp> = ({ name, type }: Comp) => {
   const [{ isDragging }, drag] = useDrag({
