@@ -1,10 +1,13 @@
 import { configureStore, Action } from '@reduxjs/toolkit'
 import { ThunkAction } from 'redux-thunk'
+import logger from 'redux-logger'
 
 import rootReducer, { RootState } from './rootReducer'
 
 const store = configureStore({
-  reducer: rootReducer
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+
 })
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
