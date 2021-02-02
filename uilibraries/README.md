@@ -1,13 +1,6 @@
 # Intention
 
-For Learning
-- React
-- React Hooks
-- Redux
-- React Router
-- XState
-- AG-GRID
-- various ui libraries
+For Learning react based ui libraries 
 
 ## 1. to build
 - npm install
